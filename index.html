@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodesy ERP - Specialty Chemical & Oil & Gas Production Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .features {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .problem-solution {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .problem-box {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .solution-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .industries {
+            padding: 80px 0;
+            background: #1e293b;
+            color: white;
+        }
+
+        .industry-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .industry-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .testimonial blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">PRODESY</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Complete ERP for Specialty Chemical Operations</h1>
+            <p>Transform your chemical production and oil & gas operations with the only ERP system built specifically for your industry's unique challenges and compliance requirements.</p>
+            <a href="#demo" class="cta-button">Request Live Demo</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Everything You Need in One Platform</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Integrated Data Management</h3>
+                    <p>Capture data once at the point of origin. Eliminate duplicate entry and ensure data consistency across your entire operation from field to lab to reporting.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Real-Time Optimization</h3>
+                    <p>IoT integration provides instantaneous optimization based on production, pressure, temperature, and lab analysis data for continuous program improvement.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Field Operations</h3>
+                    <p>Complete mobile solution for inventory tracking, field service notes, KPI updates, and lab analysis data capture from anywhere in your operation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Production Management</h3>
+                    <p>End-to-end production tracking with automated scheduling, quality control, batch management, and compliance documentation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Financial Integration</h3>
+                    <p>Complete accounting, invoicing, and financial reporting with industry-specific cost tracking and profitability analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>Compliance & Safety</h3>
+                    <p>Built-in regulatory compliance tools for chemical handling, environmental reporting, and safety documentation requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-solution">
+        <div class="container">
+            <div class="two-column">
+                <div>
+                    <h2>The Challenge</h2>
+                    <div class="problem-box">
+                        <h3>Data Fragmentation Crisis</h3>
+                        <ul style="margin-top: 1rem;">
+                            <li>Multiple spreadsheets and disconnected systems</li>
+                            <li>Manual data entry leading to errors and delays</li>
+                            <li>Field personnel juggling data collection with operations</li>
+                            <li>No real-time visibility into inventory or production</li>
+                            <li>Compliance reporting taking weeks instead of hours</li>
+                            <li>Lost opportunities due to poor data access</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h2>The Prodesy Solution</h2>
+                    <div class="solution-box">
+                        <h3>Unified Operations Platform</h3>
+                        <ul style="margin-top: 1rem;">
+                            <li>Single source of truth for all operational data</li>
+                            <li>Automated data capture from IoT devices and sensors</li>
+                            <li>Mobile-first design for field efficiency</li>
+                            <li>Real-time dashboards and alerts</li>
+                            <li>One-click compliance reports and documentation</li>
+                            <li>Predictive analytics for proactive optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="industries" id="industries">
+        <div class="container">
+            <h2>Built for Your Industry</h2>
+            <div class="industry-cards">
+                <div class="industry-card">
+                    <h3>🛢️ Oil & Gas Production</h3>
+                    <p>Complete well management, production optimization, and chemical treatment programs with real-time telemetry integration.</p>
+                </div>
+                <div class="industry-card">
+                    <h3>⚗️ Specialty Chemicals</h3>
+                    <p>Batch management, formulation control, quality assurance, and custom chemical production workflows.</p>
+                </div>
+                <div class="industry-card">
+                    <h3>🏭 Chemical Manufacturing</h3>
+                    <p>Process control, inventory management, supply chain optimization, and regulatory compliance automation.</p>
+                </div>
+                <div class="industry-card">
+                    <h3>🔬 Chemical Services</h3>
+                    <p>Field service management, customer portal access, and value-based reporting for chemical service providers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <div class="container">
+            <blockquote>"Prodesy transformed our operations from reactive to proactive. We now have complete visibility into our production and can optimize in real-time. The ROI was evident within the first quarter."</blockquote>
+            <p><strong>- Chemical Operations Manager, Leading Specialty Chemical Producer</strong></p>
+        </div>
+    </section>
+
+    <section style="padding: 80px 0; background: #f8fafc; text-align: center;" id="demo">
+        <div class="container">
+            <h2>Ready to Transform Your Operations?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">See how Prodesy can eliminate data silos and optimize your chemical operations.</p>
+            <a href="#contact" class="cta-button" style="font-size: 1.1rem; padding: 18px 36px;">Schedule Your Demo Today</a>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h3>Get Started with Prodesy ERP</h3>
+            <p>Contact us today to learn how Prodesy can revolutionize your chemical operations.</p>
+            <p style="margin-top: 1rem;">
+                📧 <strong>info@embarkinnovations.com</strong> | 
+                🌐 <strong>www.embarkinnovations.com</strong>
+            </p>
+            <p style="margin-top: 2rem; opacity: 0.7;">© 2025 Embark Innovations. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
