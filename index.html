@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodesy ERP - Specialty Chemical & Oil & Gas Production Management</title>
+    <title>Prodesy ERP - Supply Chain Optimization for Specialty Chemical & Oil & Gas</title>
     <style>
         * {
             margin: 0;
@@ -94,6 +93,7 @@
             border-radius: 8px;
             font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0 10px;
         }
 
         .cta-button:hover {
@@ -101,9 +101,63 @@
             box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
         }
 
-        .features {
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid #f59e0b;
+        }
+
+        .supply-chain-overview {
             padding: 80px 0;
             background: #f8fafc;
+        }
+
+        .workflow-visual {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .workflow-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .workflow-step::after {
+            content: "→";
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        .workflow-step:last-child::after {
+            display: none;
+        }
+
+        .workflow-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .features {
+            padding: 80px 0;
+            background: white;
         }
 
         .features h2 {
@@ -126,6 +180,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #3b82f6;
         }
 
         .feature-card:hover {
@@ -148,14 +203,14 @@
 
         .problem-solution {
             padding: 80px 0;
-            background: white;
+            background: #f8fafc;
         }
 
         .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: center;
+            align-items: start;
         }
 
         .problem-box {
@@ -170,6 +225,32 @@
             border-left: 4px solid #22c55e;
             padding: 2rem;
             border-radius: 8px;
+        }
+
+        .business-value {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .value-metric {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #f59e0b;
         }
 
         .industries {
@@ -192,9 +273,55 @@
             backdrop-filter: blur(10px);
         }
 
-        .testimonial {
+        .implementation {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .timeline-step {
+            background: #22c55e;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+        }
+
+        .timeline-step::before {
+            content: attr(data-month);
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e293b;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+        }
+
+        .pricing {
             padding: 80px 0;
             background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .price-value {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .testimonial {
+            padding: 80px 0;
+            background: #1e293b;
             color: white;
             text-align: center;
         }
@@ -225,6 +352,10 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+
+            .workflow-step::after {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -233,9 +364,10 @@
         <nav class="container">
             <div class="logo">PRODESY</div>
             <ul class="nav-links">
+                <li><a href="#supply-chain">Supply Chain</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#industries">Industries</a></li>
-                <li><a href="#demo">Demo</a></li>
+                <li><a href="#implementation">Implementation</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -243,45 +375,43 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Complete ERP for Specialty Chemical Operations</h1>
-            <p>Transform your chemical production and oil & gas operations with the only ERP system built specifically for your industry's unique challenges and compliance requirements.</p>
+            <h1>Supply Chain Optimization for Specialty Chemical Operations</h1>
+            <p>Data-driven, automated supply chain that integrates tank-level data, mobile ordering, delivery logistics & forecasting to improve cost, service, and profitability.</p>
             <a href="#demo" class="cta-button">Request Live Demo</a>
+            <a href="#supply-chain" class="cta-button cta-secondary">Learn More</a>
         </div>
     </section>
 
-    <section class="features" id="features">
+    <section class="supply-chain-overview" id="supply-chain">
         <div class="container">
-            <h2>Everything You Need in One Platform</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Integrated Data Management</h3>
-                    <p>Capture data once at the point of origin. Eliminate duplicate entry and ensure data consistency across your entire operation from field to lab to reporting.</p>
+            <h2>Complete Supply Chain Workflow</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">From tank monitoring to delivery optimization - all in one integrated platform</p>
+            
+            <div class="workflow-visual">
+                <div class="workflow-step">
+                    <div class="workflow-icon">🛢️</div>
+                    <h3>Tank Level Data</h3>
+                    <p>Daily tank level monitoring with IoT integration for real-time inventory visibility</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Real-Time Optimization</h3>
-                    <p>IoT integration provides instantaneous optimization based on production, pressure, temperature, and lab analysis data for continuous program improvement.</p>
+                <div class="workflow-step">
+                    <div class="workflow-icon">📱</div>
+                    <h3>Mobile Ordering</h3>
+                    <p>Field personnel initiate orders directly from mobile app with updated tank levels</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Mobile Field Operations</h3>
-                    <p>Complete mobile solution for inventory tracking, field service notes, KPI updates, and lab analysis data capture from anywhere in your operation.</p>
+                <div class="workflow-step">
+                    <div class="workflow-icon">📋</div>
+                    <h3>Order Aggregation</h3>
+                    <p>Centralized order management and automated documentation generation</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏭</div>
-                    <h3>Production Management</h3>
-                    <p>End-to-end production tracking with automated scheduling, quality control, batch management, and compliance documentation.</p>
+                <div class="workflow-step">
+                    <div class="workflow-icon">🚛</div>
+                    <h3>GPS Logistics</h3>
+                    <p>GPS-optimized delivery routes and real-time tracking for maximum efficiency</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💼</div>
-                    <h3>Financial Integration</h3>
-                    <p>Complete accounting, invoicing, and financial reporting with industry-specific cost tracking and profitability analysis.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚖️</div>
-                    <h3>Compliance & Safety</h3>
-                    <p>Built-in regulatory compliance tools for chemical handling, environmental reporting, and safety documentation requirements.</p>
+                <div class="workflow-step">
+                    <div class="workflow-icon">📊</div>
+                    <h3>Usage Forecasting</h3>
+                    <p>Usage-based demand forecasting that's 8-15% more accurate than sales-based methods</p>
                 </div>
             </div>
         </div>
@@ -291,32 +421,98 @@
         <div class="container">
             <div class="two-column">
                 <div>
-                    <h2>The Challenge</h2>
+                    <h2>Current Supply Chain Challenges</h2>
                     <div class="problem-box">
-                        <h3>Data Fragmentation Crisis</h3>
+                        <h3>Critical Inefficiencies</h3>
                         <ul style="margin-top: 1rem;">
-                            <li>Multiple spreadsheets and disconnected systems</li>
-                            <li>Manual data entry leading to errors and delays</li>
-                            <li>Field personnel juggling data collection with operations</li>
-                            <li>No real-time visibility into inventory or production</li>
-                            <li>Compliance reporting taking weeks instead of hours</li>
-                            <li>Lost opportunities due to poor data access</li>
+                            <li>Limited visibility into field-level inventory</li>
+                            <li>Manual ordering and fragmented documentation</li>
+                            <li>Delivery inefficiencies and costly rush logistics</li>
+                            <li>Inaccurate forecasts based on lagging sales data</li>
+                            <li>No real-time optimization capabilities</li>
+                            <li>Multiple systems creating data silos</li>
                         </ul>
                     </div>
                 </div>
                 <div>
                     <h2>The Prodesy Solution</h2>
                     <div class="solution-box">
-                        <h3>Unified Operations Platform</h3>
+                        <h3>Integrated Optimization Platform</h3>
                         <ul style="margin-top: 1rem;">
-                            <li>Single source of truth for all operational data</li>
-                            <li>Automated data capture from IoT devices and sensors</li>
-                            <li>Mobile-first design for field efficiency</li>
-                            <li>Real-time dashboards and alerts</li>
-                            <li>One-click compliance reports and documentation</li>
-                            <li>Predictive analytics for proactive optimization</li>
+                            <li>Daily tank level monitoring with IoT integration</li>
+                            <li>Mobile product ordering from the field</li>
+                            <li>Centralized order aggregation and processing</li>
+                            <li>Automated documentation and compliance</li>
+                            <li>GPS-optimized delivery routes</li>
+                            <li>Usage-based demand forecasting</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="business-value" id="value">
+        <div class="container">
+            <h2>Proven Business Value</h2>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-metric">8-15%</div>
+                    <h3>Forecast Accuracy</h3>
+                    <p>Improvement over sales-based forecasting methods through usage-based analytics</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-metric">50%</div>
+                    <h3>Cost Reduction</h3>
+                    <p>Lower fuel, labor, and inventory waste through optimized delivery routes</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-metric">90%</div>
+                    <h3>Process Automation</h3>
+                    <p>Eliminate manual tasks and streamline order management workflows</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-metric">24/7</div>
+                    <h3>Real-Time Visibility</h3>
+                    <p>Complete transparency into inventory, orders, and delivery performance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Complete ERP Platform Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Integrated Data Management</h3>
+                    <p>Single source of truth for all operational data with automated capture from IoT devices and sensors.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Real-Time Optimization</h3>
+                    <p>Instantaneous optimization based on production, pressure, temperature, and lab analysis data.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Field Operations</h3>
+                    <p>Complete mobile solution for inventory tracking, field service notes, and real-time data capture.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Production Management</h3>
+                    <p>End-to-end production tracking with automated scheduling and quality control.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Financial Integration</h3>
+                    <p>Complete accounting and financial reporting with industry-specific cost tracking.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>Compliance & Safety</h3>
+                    <p>One-click audit-ready documentation and regulatory compliance automation.</p>
                 </div>
             </div>
         </div>
@@ -324,11 +520,11 @@
 
     <section class="industries" id="industries">
         <div class="container">
-            <h2>Built for Your Industry</h2>
+            <h2>Purpose-Built for Your Industry</h2>
             <div class="industry-cards">
                 <div class="industry-card">
                     <h3>🛢️ Oil & Gas Production</h3>
-                    <p>Complete well management, production optimization, and chemical treatment programs with real-time telemetry integration.</p>
+                    <p>Complete well management, production optimization, and chemical treatment programs with real-time telemetry.</p>
                 </div>
                 <div class="industry-card">
                     <h3>⚗️ Specialty Chemicals</h3>
@@ -336,35 +532,76 @@
                 </div>
                 <div class="industry-card">
                     <h3>🏭 Chemical Manufacturing</h3>
-                    <p>Process control, inventory management, supply chain optimization, and regulatory compliance automation.</p>
+                    <p>Process control, inventory management, supply chain optimization, and regulatory compliance.</p>
                 </div>
                 <div class="industry-card">
                     <h3>🔬 Chemical Services</h3>
-                    <p>Field service management, customer portal access, and value-based reporting for chemical service providers.</p>
+                    <p>Field service management, customer portal access, and value-based reporting for service providers.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="implementation" id="implementation">
+        <div class="container">
+            <h2>Fast Implementation Timeline</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">Get started quickly with our phased approach - see ROI from day one</p>
+            
+            <div class="timeline">
+                <div class="timeline-step" data-month="Month 1">
+                    <h3>Configuration & Deployment</h3>
+                    <p>Tank level integration, mobile ordering, workflow customization</p>
+                </div>
+                <div class="timeline-step" data-month="Month 2">
+                    <h3>Phased Extension</h3>
+                    <p>Order aggregation, delivery logistics, sales forecasting integration</p>
+                </div>
+                <div class="timeline-step" data-month="Month 3-4">
+                    <h3>Supply Chain Management</h3>
+                    <p>Manufacturing integration, materials scheduling, full automation</p>
+                </div>
+                <div class="timeline-step" data-month="Ongoing">
+                    <h3>Training & Support</h3>
+                    <p>Proactive on-demand support with full onboarding for all staff</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Investment & ROI</h2>
+            <div class="price-value">$5,500/month</div>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Custom-tailored solution with immediate value and ROI through improved cash flow, field efficiency, and lower delivery costs</p>
+            <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+                <li>✓ Building blocks already in place - faster deployment</li>
+                <li>✓ Custom configuration for your specific business processes</li>
+                <li>✓ Lower cost than generic ERP systems</li>
+                <li>✓ Industry-specific features you won't find elsewhere</li>
+                <li>✓ Immediate ROI with measurable cost savings</li>
+            </ul>
+        </div>
+    </section>
+
     <section class="testimonial">
         <div class="container">
-            <blockquote>"Prodesy transformed our operations from reactive to proactive. We now have complete visibility into our production and can optimize in real-time. The ROI was evident within the first quarter."</blockquote>
-            <p><strong>- Chemical Operations Manager, Leading Specialty Chemical Producer</strong></p>
+            <blockquote>"Prodesy transformed our supply chain from reactive to proactive. We now have complete visibility and can optimize in real-time. The forecasting accuracy improvement alone paid for the system."</blockquote>
+            <p><strong>- Supply Chain Manager, Leading Specialty Chemical Producer</strong></p>
         </div>
     </section>
 
     <section style="padding: 80px 0; background: #f8fafc; text-align: center;" id="demo">
         <div class="container">
-            <h2>Ready to Transform Your Operations?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">See how Prodesy can eliminate data silos and optimize your chemical operations.</p>
+            <h2>Ready to Optimize Your Supply Chain?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">See how Prodesy can eliminate inefficiencies and transform your chemical operations with our proven supply chain optimization platform.</p>
             <a href="#contact" class="cta-button" style="font-size: 1.1rem; padding: 18px 36px;">Schedule Your Demo Today</a>
         </div>
     </section>
 
     <footer id="contact">
         <div class="container">
-            <h3>Get Started with Prodesy ERP</h3>
-            <p>Contact us today to learn how Prodesy can revolutionize your chemical operations.</p>
+            <h3>Get Started with Prodesy Supply Chain Optimization</h3>
+            <p>Contact us today to learn how Prodesy can revolutionize your chemical supply chain operations.</p>
             <p style="margin-top: 1rem;">
                 📧 <strong>info@embarkinnovations.com</strong> | 
                 🌐 <strong>www.embarkinnovations.com</strong>
